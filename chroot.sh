@@ -12,7 +12,7 @@ hwclock --systohc
 
 clear
 
-read -p "Select locale [en/tr]: " localeset
+read -p "Lokalinizi secin [en/tr]: " localeset
 
 if [ $localeset == "en" ];
 then
@@ -44,7 +44,7 @@ echo '127.0.1.1       '$host_name'.localdomain     '$host_name >> /etc/hosts
 clear
 
 # root password
-echo 'Root password'
+echo 'Root sifresi'
 passwd
 
 clear
@@ -85,10 +85,10 @@ sleep 3
 clear
 
 # useradd
-read -p 'Username: ' user_name
+read -p 'Kullanici adi: ' user_name
 clear
 useradd -m -g users -G wheel,storage,power,audio,video,network -s /bin/bash $user_name
-echo $user_name 'password'
+echo $user_name 'sifresi'
 passwd $user_name
 
 # sudo privileges
