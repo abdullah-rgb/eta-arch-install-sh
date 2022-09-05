@@ -66,6 +66,12 @@ clear
 # Video drivers
 pacman -S mesa lib32-mesa opencl-mesa lib32-opencl-mesa vulkan-radeon lib32-vulkan-radeon amd-ucode intel-ucode xf86-video-intel xf86-video-amdgpu libva-intel-driver vulkan-intel lib32-libva-intel-driver libva-mesa-driver lib32-libva-mesa-driver
 
+clear
+
+# Desktop Environment
+pacman -S xorg xorg-xinit gnome gnome-tweaks
+clear
+
 # GRUB
 pacman -S grub efibootmgr os-prober
 clear
