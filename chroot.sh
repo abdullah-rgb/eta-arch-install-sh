@@ -12,7 +12,7 @@ hwclock --systohc
 
 clear
 
-read -p "Lokalinizi secin [en/tr]: " localeset
+read -p "Select locale [en/tr]: " localeset
 
 if [ $localeset == "en" ];
 then
@@ -44,7 +44,7 @@ echo '127.0.1.1       '$host_name'.localdomain     '$host_name >> /etc/hosts
 clear
 
 # root password
-echo 'Root sifresi'
+echo 'Root password'
 passwd
 
 clear
@@ -73,10 +73,13 @@ pacman -S xorg xorg-xinit gnome gnome-tweaks
 clear
 
 # GRUB
-pacman -S grub efibootmgr os-prober
+pacman -S grub
 clear
 
-grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id='Arch Linux'
+lsblk
+read -p "Select disk for GRUB installation (Example: vda, sda, nvme0n1): " grub_disk
+
+grub-install --target=i386-pc /dev/$grub_disk
 sleep 1
 clear
 
@@ -85,10 +88,10 @@ sleep 3
 clear
 
 # useradd
-read -p 'Kullanici adi: ' user_name
+read -p 'Username: ' user_name
 clear
 useradd -m -g users -G wheel,storage,power,audio,video,network -s /bin/bash $user_name
-echo $user_name 'sifresi'
+echo $user_name 'password'
 passwd $user_name
 
 # sudo privileges
