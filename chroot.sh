@@ -70,6 +70,7 @@ clear
 
 # Desktop Environment
 pacman -S xorg xorg-xinit gnome gnome-tweaks
+systemctl enable gdm
 clear
 
 # GRUB
