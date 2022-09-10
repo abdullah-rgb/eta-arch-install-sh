@@ -7,6 +7,9 @@ nano /etc/pacman.conf
 # update mirrors
 pacman -Sy archlinux-keyring
 
+# real-time synchronize
+timedatectl set-ntp true
+
 clear
 
 # disk configuration
@@ -27,7 +30,7 @@ mount /dev/$root_partition /mnt
 clear
 
 # install base packages
-pacstrap /mnt base base-devel linux linux-headers linux-firmware git nano bc
+pacstrap /mnt base base-devel linux linux-headers linux-firmware git nano
 
 # create fstab file
 genfstab -U /mnt > /mnt/etc/fstab
