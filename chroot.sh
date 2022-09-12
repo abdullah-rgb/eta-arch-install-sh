@@ -55,7 +55,7 @@ systemctl enable NetworkManager
 sleep 2
 clear
 
-# touchpad support
+# input drivers
 pacman -S xf86-input-libinput xf86-input-elographics xf86-input-evdev xf86-input-synaptics xf86-input-void xf86-input-wacom
 clear
 
@@ -69,7 +69,7 @@ pacman -S mesa lib32-mesa opencl-mesa lib32-opencl-mesa vulkan-radeon lib32-vulk
 clear
 
 # Desktop Environment
-pacman -S xorg xorg-xinit gnome gnome-tweaks
+pacman -S xorg xorg-xinit gnome gnome-tweaks firefox
 systemctl enable gdm
 clear
 
