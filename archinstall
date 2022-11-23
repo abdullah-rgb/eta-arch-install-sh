@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/bash
 clear
 
 # edit /etc/pacman.conf file
@@ -26,6 +26,14 @@ echo ' '
 read -p 'Select Root partition (Example: vda1, sda1, nvme0n1p1): ' root_partition
 mkfs.ext4 /dev/$root_partition
 mount /dev/$root_partition /mnt
+clear
+
+# swap
+lsblk
+echo ' '
+read -p 'Select Swap partition (Example: vda1, sda1, nvme0n1p1): ' swap_partition
+mkswap /dev/$swap_partition
+swapon /dev/$swap_partition
 
 clear
 
@@ -35,6 +43,6 @@ pacstrap /mnt base base-devel linux linux-headers linux-firmware git nano
 # create fstab file
 genfstab -U /mnt > /mnt/etc/fstab
 
-cp $(pwd)/chroot.sh /mnt
+cp $(pwd)/chroot /mnt
 arch-chroot /mnt /bin/bash
-rm -rf /mnt/chroot.sh
+rm -rf /mnt/chroot

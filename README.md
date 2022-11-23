@@ -1,17 +1,16 @@
 # Vestel ETAP tahtalar için temel Arch Linux kurulum betiği
 
-## arch-install.sh Kullanımı:
+## archinstall Kullanımı:
 
 ```shell
 git clone https://github.com/abdullah-rgb/eta-arch-install-sh ~/eta-arch-install-sh
 
 cd ~/eta-arch-install-sh
 
-chmod +x *.sh
-./arch-install-sh
+sudo ./archinstall
 ```
 
-## chroot.sh kullanımı
+## chroot kullanımı
 
 ```shell
 ./chroot.sh
